@@ -22,9 +22,6 @@ public class HomeController {
     @Autowired
     private ContractorRepository repository;
 
-
-
-
     @RequestMapping("/home")
     public String index() {
        // return repository.findAll().get(0).getId() + "";
@@ -32,14 +29,14 @@ public class HomeController {
     }
 
     //return all the contractor list
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Contractor>> getAllContractors() {
         List<Contractor> contractors = repository.findAll();
         return new ResponseEntity<List<Contractor>>(contractors, HttpStatus.OK);
     }
 
     //add new contractor
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Void> addContractor(@RequestBody Contractor contractor) {
         if (!repository.exists(contractor.getId())) {
             repository.save(contractor);
@@ -48,14 +45,14 @@ public class HomeController {
         return new ResponseEntity<Void>(HttpStatus.CONFLICT);
     }
     //find contractor by ID
-    @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Contractor> findContractorById(@PathVariable int id) {
         Contractor contractor = repository.findOne(id);
         return new ResponseEntity<Contractor>(contractor, HttpStatus.OK);
     }
 
     //delete contractor by ID
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> deleteContractor(@PathVariable int id) {
         if (repository.exists(id)) {
             repository.delete(id);
@@ -64,7 +61,7 @@ public class HomeController {
         return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
     }
     //update contractor
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT)
     public ResponseEntity<Void> updateContractor(@RequestBody Contractor contractor) {
         if (repository.exists(contractor.getId())) {
             repository.save(contractor);
