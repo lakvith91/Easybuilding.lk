@@ -12,7 +12,7 @@ Used Technology:
 - Spring Boot
 - JPA 
 - Bootstrap
-- KnockoutJS
+- AngularJS
 - MySQL
 
 
