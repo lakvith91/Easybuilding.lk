@@ -12,7 +12,7 @@ public class Contractor {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @OneToOne
     private Category category;
 
     private String name;

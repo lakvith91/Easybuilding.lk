@@ -15,7 +15,7 @@ import java.util.List;
  * Created by LakshanD on 10/31/2016.
  */
 
-@RestController
+@Controller
 @RequestMapping(value = "/rest/contractor")
 public class HomeController {
 
