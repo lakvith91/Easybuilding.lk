@@ -1,0 +1,120 @@
+
+    <div>
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Your Page Content Here -->
+            <div class="row" style="margin-top: 22px">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="box box-info">
+                                <div class="box-header">
+                                    <div class="col-md-10"><h3 class="box-title">Existing Contractors</h3></div>
+                                    <div class="col-md-2"><a title="Add New Contractor" href="addcontractor.html" class="btn btn-info"><i class='fa fa-user-plus'></i>Add New</a></div>
+
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                    <table datatable="ng" class="table table-bordered table-striped" >
+                                        <thead>
+                                        <tr>
+                                            <th>Contractor Name</th>
+                                            <th>Address</th>
+                                            <th>Contact Person</th>
+                                            <th>Contact No</th>
+                                            <th>Contact Email</th>
+                                            <th class="no-sort"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody >
+                                        <tr ng-repeat="contractor in vm.contractors">
+                                            <td>{{contractor.name}}</td>
+                                            <td>{{contractor.address}}</td>
+                                            <td>{{contractor.contact_person}}</td>
+                                            <td>{{contractor.contact_no}}</td>
+                                            <td>{{contractor.contact_email}}</td>
+                                            <td>
+                                                <a data-toggle="modal"  title="view agent details" data-target="#agentDetails">View&nbsp;&nbsp;</a>
+                                                <a href="#" title="Edit Agent Details"><i class="fa fa-pencil-square-o" ></i>&nbsp;&nbsp;</a>
+                                                <a href="#"title="Remove Agent" ng-click="vm.deleteById(contractor.id)"><i class="btn-xs fa fa-trash-o"></i></a>
+                                            </td>
+
+
+                                        </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div><!--
+
+                                                       /.box-body -->
+                            </div><!-- /.box -->
+
+                        </div>
+                        <!--end of column-->
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+            <!-- Modal -->
+            <div class="modal fade" id="agentDetails" role="dialog" data-bind="modal: { visible: modalVisible}">
+                <div class="modal-dialog" style="height: auto">
+                    <div class="box box-info">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Travel Agent Details</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <table class="table">
+
+                                            <tr>
+                                                <td>Name:</td>
+                                                <td data-bind="text:agentName1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Address:</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Name:</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Name:</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Name:</td>
+                                                <td></td>
+                                            </tr>
+
+
+                                        </table>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <img id="agentImage" src="dist/img/avatar5.png" class="img-rounded img-responsive"style="width:140px;height:140px;"
+                                             width="215" height="215">
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
