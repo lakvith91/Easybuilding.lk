@@ -15,6 +15,7 @@ public class Contractor {
     @OneToOne
     private Category category;
 
+
     private String name;
     private String address;
     private String email;
@@ -25,7 +26,7 @@ public class Contractor {
     private String contact_person;
     private String contact_email;
     private String contact_no;
-    private String reg_date;
+    private String reg_date;//should auto generated timestamp
     private int reg_type;
 
 

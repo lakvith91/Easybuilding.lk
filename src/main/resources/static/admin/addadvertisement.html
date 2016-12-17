@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>EasyBuilding.lk | Dashboard</title>
+  <title>EasyBuilding.lk | Add Advertisement</title>
    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -39,7 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini" ng-app="app" ng-controller="ContractorController as vm">
+<body class="hold-transition skin-blue sidebar-mini" ng-app="app" ng-controller="AdvertisementController as vm">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -242,7 +242,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </a>
         </li>
       
-       <li class="active treeview">
+       <li class=" treeview">
           <a href="#">
             <i class="fa fa-users"></i> <span>Contractors</span>
             <span class="pull-right-container">
@@ -255,7 +255,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </ul>
         </li>
 
-        <li class="treeview">
+        <li class="active treeview">
           <a href="#">
             <i class="fa fa-newspaper-o"></i> <span>Advertisement</span>
             <span class="pull-right-container">
@@ -264,7 +264,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </a>
           <ul class="treeview-menu">
             <li><a href="advertisement.html"><i class="fa fa-newspaper-o"></i> View Advertisements</a></li>
-            <li><a href="#"><i class="fa fa-plus-square-o"></i> Add New Advertisement</a></li>
+            <li><a href="addadvertisement.html"><i class="fa fa-plus-square-o"></i> Add New Advertisement</a></li>
           </ul>
         </li>
 
@@ -381,7 +381,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </h1>
       <ol class="breadcrumb">
         <li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Add Contractors</li>
+        <li class="active">Add Advertisement</li>
       </ol>
     </section>
 
@@ -397,12 +397,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="box box-info">
                         <!-- box header-->
                         <div class="box-header">
-                            <h3 class="box-title">Add New Contractor</h3>
+                            <h3 class="box-title">Add New Advertisement</h3>
 
                         </div>
                         <!--box header ends-->
                         <!-- Employee details form-->
-                        <form role="form" name="addContractor">
+                        <form role="form" name="addadvertisement">
                         <!--box content begins-->
                         <div class="box-body" style="padding: 20px">
 
@@ -410,97 +410,60 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="col-md-8">
 
                                     <div class="row form-group" style="margin-top: 20px;">
-                                        <label class="col-md-4" for="Name">Contractor Name:</label>
+                                        <label class="col-md-4" for="title">Advertisement Title:</label>
                                         <div class="col-md-8">
-                                            <input type="text" class="form-control" required name="Name" id="Name" ng-model="contractor.name"
-                                                   placeholder="Enter Name">
+                                            <input type="text" class="form-control" required name="title" id="title" ng-model="ads.title"
+                                                   placeholder="Enter Title">
                                         </div>
                                     </div>
                                     <div class="row form-group">
-                                        <label class="col-md-4" for="address">Address:</label>
+                                        <label class="col-md-4" for="description">Description:</label>
                                         <div class="col-md-8">
-                                            <input type="text" class="form-control" required id="address" name="address" placeholder="Enter Address" ng-model="contractor.address">
+                                            <input type="text" class="form-control" required id="description" name="description" placeholder="Enter description" ng-model="ads.description"/>
                                         </div>
                                     </div>
                                     <div class="row form-group">
-                                        <label class="col-md-4"  for="phoneNo">Phone No:</label>
+                                        <label class="col-md-4"  for="location">Location:</label>
                                         <div class="col-md-8">
-                                            <input type="tel" size="10"  class="form-control" required id="phoneNo" name="phoneNo" placeholder="Enter Phone Number" ng-model="contractor.phone_no">
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <label class="col-md-4" for="email">Email:</label>
-                                        <div class="col-md-8">
-                                            <input type="email" class="form-control" required id="email" name="email" placeholder="Enter Email" ng-model="contractor.email">
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <label class="col-md-4" for="Location">Location:</label>
-                                        <div class="col-md-8">
-                                            <input type="text" class="form-control" required id="Location" name="Location" placeholder="Enter Location" ng-model="contractor.location">
+                                            <input type="tel" size="10"  class="form-control" required id="location" name="location" placeholder="Enter Location" ng-model="ads.location">
                                         </div>
                                     </div>
 
                                     <div class="row form-group">
-                                        <label class="col-md-4" for="website">Web Site:</label>
+                                        <label class="col-md-4" for="duration">Duration:</label>
+
                                         <div class="col-md-8">
-                                            <input type="text" class="form-control" id="website" name="website" placeholder="Enter Web Site" ng-model="contractor.web_site">
+                                            <select class="form-control"  name="duration" id="duration"
+                                                    ng-model="ads.duration">
+                                                <option ng-repeat="option in vm.durationList" value="{{option}}">{{option}}</option>
+                                            </select>
+
                                         </div>
                                     </div>
-
-
                                     <div class="row form-group">
                                         <label class="col-md-4" for="Category">Category:</label>
 
                                         <div class="col-md-8">
                                             <select class="form-control"  name="Category" id="Category"
                                                     ng-options="option.name for option in vm.categoryList track by option.id"
-                                                    ng-model="contractor.category" required>
+                                                    ng-model="ads.category" required>
                                                 <!--option ng-repeat="option in vm.categoryList" value="{{option.id}}">{{option.name}}</option-->
                                             </select>
 
                                         </div>
                                     </div>
                                     <div class="row form-group">
-                                        <label class="col-md-4" for="reg_type">Account Type(Reg Type):</label>
+                                        <label class="col-md-4" for="contractor">Contractor:</label>
 
                                         <div class="col-md-8">
-                                            <select class="form-control"  name="reg_type" id="reg_type" ng-model="contractor.reg_type">
-                                                <option>6 Months</option>
-                                                <option>1 year</option>
-                                                <option>2 years</option>
+                                            <select class="form-control"  name="contractor" id="contractor"
+                                                    ng-options="option.name for option in vm.contractorList track by option.id"
+                                                    ng-model="ads.contractor" required>
+                                                <!--option ng-repeat="option in vm.categoryList" value="{{option.id}}">{{option.name}}</option-->
                                             </select>
+
                                         </div>
                                     </div>
-
-
-
-
-                                    <div class="row form-group">
-                                        <label class="col-md-4"  for="contact_person">Contact Person(Admin Use only):</label>
-
-                                        <div class="col-md-8">
-                                            <input type="text" required class="form-control"  id="contact_person" name="contact_person" placeholder="Enter Conatct Person" ng-model="contractor.contact_person">
-                                        </div>
-
-                                    </div>
-                                    <div class="row form-group">
-                                        <label class="col-md-4" for="contact_email">Conatct Email(Admin use only):</label>
-
-                                        <div class="col-md-8">
-                                            <input type="email"  class="form-control" id="contact_email" name="contact_email" placeholder="Enter Conatct Email" ng-model="contractor.contact_email">
-                                        </div>
-
-                                    </div>
-                                    <div class="row form-group">
-                                        <label class="col-md-4" for="contact_no">Conatct No(Admin use only):</label>
-
-                                        <div class="col-md-8">
-                                            <input type="text"  class="form-control" id="contact_no" name="contact_no" placeholder="Enter Conatct No" ng-model="contractor.contact_no">
-                                        </div>
-
-                                    </div>
-
 
 
                                 </div>
@@ -530,7 +493,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <button type="button" onclick="$('form').trigger('reset')" class="btn btn-danger ">
                                     Clear
                                 </button>
-                                <input type="submit" data-ng-click="vm.addContractor(contractor)" value="Save" class="btn btn-info">
+                                <input type="submit" data-ng-click="vm.addAds(ads)" value="Save" class="btn btn-info">
                                 <!--<input type="submit" class="btn btn-info " value="Submit" ng-click="addContractor()">-->
                                     <!--Next&nbsp;<i class="fa fa-angle-double-right"></i>-->
                                 <!--</input>-->
@@ -749,7 +712,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="plugins/anguler/angular.min.js" th:src="@{/plugins/anguler/angular.min.js}"></script>
 <script src="plugins/anguler/angular-datatables.min.js"></script>
 <script type="text/javascript" src="dist/js/app.module.js" th:src="@{/dist/js/app.module.js}"></script>
-<script type="text/javascript" src="dist/js/pages/contractor.js" th:src="@{/dist/js/pages/contractor.js}"></script>
+<script type="text/javascript" src="dist/js/pages/advertisement.js" th:src="@{/dist/js/pages/advertisement.js}"></script>
 
 
 <script type="text/javascript">

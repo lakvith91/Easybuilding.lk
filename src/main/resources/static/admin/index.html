@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -681,7 +681,7 @@
               <div id="calendar" style="width: 100%"></div>
             </div>
             <!-- /.box-body -->
-            
+          </div>
         </section>
         <!-- right col -->
       </div>
@@ -742,7 +742,13 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
-<!-- data load for existing travel agents-->
-<script type="text/javascript" src="plugins/knockoutjs/knockout-3.3.0.js"> </script>
+
+
+<!--Anguler -->
+<script src="plugins/anguler/angular.min.js" th:src="@{/plugins/anguler/angular.min.js}"></script>
+<script src="plugins/anguler/angular-datatables.min.js"></script>
+<script type="text/javascript" src="dist/js/app.module.js" th:src="@{/dist/js/app.module.js}"></script>
+<script type="text/javascript" src="dist/js/pages/contractor.js" th:src="@{/dist/js/pages/contractor.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
 </body>
 </html>

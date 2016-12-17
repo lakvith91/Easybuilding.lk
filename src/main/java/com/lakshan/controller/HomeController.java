@@ -15,18 +15,13 @@ import java.util.List;
  * Created by LakshanD on 10/31/2016.
  */
 
-@Controller
+@RestController
 @RequestMapping(value = "/rest/contractor")
 public class HomeController {
 
     @Autowired
     private ContractorRepository repository;
 
-    @RequestMapping("/home")
-    public String index() {
-       // return repository.findAll().get(0).getId() + "";
-        return "index";
-    }
 
     //return all the contractor list
     @RequestMapping(method = RequestMethod.GET)
